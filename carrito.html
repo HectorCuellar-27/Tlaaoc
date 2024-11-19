@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras - Tlaook Dulcería Mexicana</title>
+    <!-- Link de Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Menú de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><strong>Tlaook</strong></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="registro.html">Registro</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Iniciar sesión</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="carrito.html">
+                            <span class="position-relative">
+                                <img src="cart-icon.png" alt="Carrito" style="width: 24px;">
+                                <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección del carrito -->
+    <section id="carrito" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Tu Carrito de Compras</h2>
+
+            <!-- Resumen del carrito (sin mostrar productos, solo total y cantidad) -->
+            <div class="d-flex justify-content-between">
+                <h4>Total: <span id="cart-total">$0.00 MXN</span></h4>
+                <p>Cantidad de artículos: <span id="cart-count-summary">0</span></p>
+            </div>
+
+            <!-- Mostrar productos en el carrito -->
+            <div id="carrito-contenido" class="row">
+                <!-- Aquí se mostrarán los productos del carrito -->
+            </div>
+            
+            <!-- Botón para proceder al pago -->
+            <div class="text-center">
+                <button class="btn btn-primary" id="proceed-to-checkout" disabled>Proceder al Pago</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Script de Bootstrap y Carrito -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Función para obtener el carrito desde localStorage
+        function obtenerCarrito() {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            return carrito;
+        }
+
+        // Función para actualizar el resumen del carrito
+        function actualizarResumenCarrito() {
+            const carrito = obtenerCarrito();
+            const cartTotal = document.getElementById('cart-total');
+            const cartCount = document.getElementById('cart-count-summary');
+            const proceedButton = document.getElementById('proceed-to-checkout');
+            
+            let total = 0;
+            let cantidad = 0;
+
+            carrito.forEach(producto => {
+                total += producto.precio * producto.cantidad;
+                cantidad += producto.cantidad;
+            });
+
+            cartTotal.textContent = `$${total.toFixed(2)} MXN`;
+            cartCount.textContent = cantidad;
+            
+            // Activar o desactivar el botón de "Proceder al Pago"
+            proceedButton.disabled = cantidad === 0;
+        }
+
+        // Función para mostrar los productos en el carrito
+        function mostrarCarrito() {
+            let carrito = obtenerCarrito();
+            let carritoContenido = document.getElementById('carrito-contenido');
+            let total = 0;
+
+            // Limpiar el contenido del carrito
+            carritoContenido.innerHTML = '';
+
+            // Recorrer el carrito y mostrar los productos
+            carrito.forEach((producto, index) => {
+                let productoDiv = document.createElement('div');
+                productoDiv.classList.add('col-md-4', 'mb-4');
+
+                // Mostrar el producto en el carrito
+                productoDiv.innerHTML = `
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">${producto.nombre}</h5>
+                            <p class="card-text">$${producto.precio.toFixed(2)} x ${producto.cantidad}</p>
+                            <button class="btn btn-danger" onclick="eliminarDelCarrito(${index})">Eliminar</button>
+                            <button class="btn btn-success mt-2" onclick="incrementarCantidad(${index})">+</button>
+                        </div>
+                    </div>
+                `;
+                carritoContenido.appendChild(productoDiv);
+
+                // Acumulando el total
+                total += producto.precio * producto.cantidad;
+            });
+
+            // Mostrar el total
+            document.getElementById('cart-total').textContent = `$${total.toFixed(2)} MXN`;
+            document.getElementById('cart-count-summary').textContent = carrito.length;
+        }
+
+        // Función para incrementar la cantidad de un producto en el carrito
+        function incrementarCantidad(index) {
+            let carrito = obtenerCarrito();
+            carrito[index].cantidad++; // Incrementar la cantidad del producto seleccionado
+
+            // Guardar el carrito actualizado en localStorage
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+
+            // Volver a cargar el carrito
+            mostrarCarrito();
+            actualizarResumenCarrito();
+        }
+
+        // Función para eliminar un producto del carrito de uno en uno
+        function eliminarDelCarrito(index) {
+            let carrito = obtenerCarrito();
+            
+            // Si la cantidad del producto es mayor a 1, solo restar la cantidad
+            if (carrito[index].cantidad > 1) {
+                carrito[index].cantidad--;
+            } else {
+                // Si la cantidad es 1, eliminar el producto del carrito
+                carrito.splice(index, 1);
+            }
+
+            // Guardar el carrito actualizado en localStorage
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+
+            // Volver a cargar el carrito
+            mostrarCarrito();
+            actualizarResumenCarrito();
+        }
+
+        // Cargar el carrito cuando la página se cargue
+        document.addEventListener('DOMContentLoaded', function() {
+            mostrarCarrito();
+            actualizarResumenCarrito();  // Actualiza el resumen del carrito al cargar la página
+        });
+    </script>
+</body>
+</html>

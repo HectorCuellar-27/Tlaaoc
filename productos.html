@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tlaook - Productos</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Menú de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><strong>Tlaook</strong></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="registro.html">Registro</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Iniciar sesión</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="carrito.html">
+                            <span class="position-relative">
+                                <img src="cart-icon.png" alt="Carrito" style="width: 24px;">
+                                <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección de Productos -->
+    <section id="productos" class="my-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Nuestros Dulces</h2>
+            <div class="row">
+                <!-- Mazapán -->
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center">
+                        <img src="../imagenes/Mazapan.jpg" class="card-img-top" alt="Mazapán">
+                        <div class="card-body">
+                            <h5 class="card-title">Mazapán</h5>
+                            <p class="card-text">Dulce de cacahuate molido.</p>
+                            <p class="text-primary">$10 MXN</p>
+                            <button class="btn btn-success" onclick="agregarAlCarrito('Mazapán', 10)">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alegrías -->
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center">
+                        <img src="../imagenes/Alegrías.jpg" class="card-img-top" alt="Alegrías">
+                        <div class="card-body">
+                            <h5 class="card-title">Alegrías</h5>
+                            <p class="card-text">Dulce a base de amaranto y miel.</p>
+                            <p class="text-primary">$15 MXN</p>
+                            <button class="btn btn-success" onclick="agregarAlCarrito('Alegrías', 15)">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Glorias -->
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center">
+                        <img src="../imagenes/Glorias.jpg" class="card-img-top" alt="Glorias">
+                        <div class="card-body">
+                            <h5 class="card-title">Glorias</h5>
+                            <p class="card-text">Dulce de leche quemada con nuez.</p>
+                            <p class="text-primary">$30 MXN</p>
+                            <button class="btn btn-success" onclick="agregarAlCarrito('Glorias', 30)">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Borrachitos -->
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center">
+                        <img src="../imagenes/Borrachitos.jpg" class="card-img-top" alt="Borrachitos">
+                        <div class="card-body">
+                            <h5 class="card-title">Borrachitos</h5>
+                            <p class="card-text">Dulces con un toque de licor y azúcar.</p>
+                            <p class="text-primary">$20 MXN</p>
+                            <button class="btn btn-success" onclick="agregarAlCarrito('Borrachitos', 20)">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cocadas -->
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center">
+                        <img src="../imagenes/Cocadas.jpg" class="card-img-top" alt="Cocadas">
+                        <div class="card-body">
+                            <h5 class="card-title">Cocadas</h5>
+                            <p class="card-text">Dulce de coco rallado con leche condensada.</p>
+                            <p class="text-primary">$18 MXN</p>
+                            <button class="btn btn-success" onclick="agregarAlCarrito('Cocadas', 18)">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Palanqueta -->
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center">
+                        <img src="../imagenes/Palanquetas.jpg" class="card-img-top" alt="Palanquetas">
+                        <div class="card-body">
+                            <h5 class="card-title">Palanquetas</h5>
+                            <p class="card-text">Caramelo con cacahuate o nuez.</p>
+                            <p class="text-primary">$15 MXN</p>
+                            <button class="btn btn-success" onclick="agregarAlCarrito('Palanquetas', 15)">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ate -->
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center">
+                        <img src="../imagenes/Ate.jpg" class="card-img-top" alt="Ate">
+                        <div class="card-body">
+                            <h5 class="card-title">Ate</h5>
+                            <p class="card-text">Hecho de membrillo o guayaba.</p>
+                            <p class="text-primary">$12 MXN</p>
+                            <button class="btn btn-success" onclick="agregarAlCarrito('Ate', 12)">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mueganos -->
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center">
+                        <img src="../imagenes/Mueganos.jpg" class="card-img-top" alt="Mueganos">
+                        <div class="card-body">
+                            <h5 class="card-title">Mueganos</h5>
+                            <p class="card-text">Masa frita cubierta de caramelo.</p>
+                            <p class="text-primary">$20 MXN</p>
+                            <button class="btn btn-success" onclick="agregarAlCarrito('Mueganos', 20)">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jamoncillo -->
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center">
+                        <img src="../imagenes/Jamoncillo.jpg" class="card-img-top" alt="Jamoncillo">
+                        <div class="card-body">
+                            <h5 class="card-title">Jamoncillo</h5>
+                            <p class="card-text">Dulce a base de leche.</p>
+                            <p class="text-primary">$28 MXN</p>
+                            <button class="btn btn-success" onclick="agregarAlCarrito('Jamoncillo', 28)">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light text-center py-4">
+        <p>&copy; 2024 Tlaook. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Script para agregar al carrito -->
+    <script>
+        function agregarAlCarrito(producto, precio) {
+            // Convertir el precio a número en caso de que esté en formato cadena
+            precio = parseFloat(precio);
+
+            // Obtener el carrito actual desde localStorage
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+            // Verificar si el producto ya está en el carrito
+            let productoExistente = carrito.find(item => item.nombre === producto);
+
+            if (productoExistente) {
+                // Si el producto ya está, solo aumentar la cantidad
+                productoExistente.cantidad += 1;
+            } else {
+                // Si no está, agregarlo con cantidad 1
+                const productoAgregar = { nombre: producto, precio: precio, cantidad: 1 };
+                carrito.push(productoAgregar);
+            }
+
+            // Guardar el carrito actualizado en localStorage
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+
+            // Actualizar el contador del carrito
+            actualizarContadorCarrito();
+        }
+
+        // Actualizar el contador de artículos en el carrito
+        function actualizarContadorCarrito() {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            let contador = carrito.reduce((total, item) => total + item.cantidad, 0); // Sumar las cantidades
+            document.getElementById('cart-count').textContent = contador;
+        }
+
+        // Actualizar el contador al cargar la página
+        window.onload = function() {
+            actualizarContadorCarrito();
+        };
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

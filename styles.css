@@ -1,0 +1,238 @@
+/* General */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos del Navbar */
+.navbar {
+  background-color: #e74c3c; /* Rojo mexicano */
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  color: #000 !important;
+  font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+  color: #000 !important;
+  margin-left: 15px;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffcd3c !important; /* Amarillo brillante */
+}
+
+/* Estilos de la Sección de Productos */
+#productos {
+  background-color: #fffcf2;
+  padding: 60px 0;
+}
+
+#productos h2 {
+  color: #e74c3c;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 4px solid #e74c3c;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #666;
+}
+
+.text-primary {
+  color: #e74c3c !important; /* Rojo mexicano */
+  font-weight: bold;
+}
+
+/* Controles de Carrusel */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #e74c3c;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+  background-color: #ffcd3c;
+}
+
+/* Estilos para Móviles */
+@media (max-width: 768px) {
+  #productos h2 {
+    font-size: 2rem;
+  }
+
+  .navbar-brand {
+    font-size: 1.25rem;
+  }
+
+  .navbar-nav .nav-link {
+    margin-left: 0;
+  }
+}
+
+/* Personalización adicional */
+#contacto {
+  background-color: #f8f9fa;
+  padding: 60px 0;
+}
+
+#contacto h2 {
+  color: #e74c3c;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+/* Fondo y borde del formulario de registro */
+.card {
+  border: 1px solid #e3e3e3;
+  border-radius: 8px;
+}
+
+h2 {
+  color: #444;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: #ff6b6b;
+  border-color: #ff6b6b;
+}
+
+.btn-primary:hover {
+  background-color: #ff4e4e;
+  border-color: #ff4e4e;
+}
+
+/* Estilos para el campo de contraseña */
+.input-group .form-control {
+  border-right: 0;
+}
+
+.input-group .btn-outline-secondary {
+  border-left: 0;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.input-group .btn-outline-secondary img {
+  width: 20px;
+}
+
+/* Ajustes generales */
+body {
+  background-color: #f8f9fa;
+}
+
+footer {
+  background-color: #f1f1f1;
+  color: #555;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Estilos para la sección de Canastas */
+#canastas-eventos {
+  background-color: #fffcf2;
+  padding: 60px 0;
+}
+
+#canastas-eventos h2 {
+  color: #e74c3c;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.card img {
+  height: 250px; /* Ajusta la altura de las imágenes para que no sean tan grandes */
+  object-fit: cover;
+  border-bottom: 4px solid #e74c3c;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Ajustes para la disposición de las tarjetas */
+#canastas-eventos .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+#canastas-eventos .col-md-4 {
+  flex: 0 0 30%; /* Limita el tamaño de las columnas a un máximo de 3 por fila */
+  margin-bottom: 30px;
+}
+
+#canastas-eventos .col-md-4 .card {
+  height: 100%;
+}
+
+/* Ajustes de Responsividad */
+@media (max-width: 992px) {
+  #canastas-eventos .col-md-4 {
+    flex: 0 0 45%; /* Ajusta las columnas a dos por fila en pantallas medianas */
+  }
+}
+
+@media (max-width: 768px) {
+  #canastas-eventos .col-md-4 {
+    flex: 0 0 100%; /* En pantallas pequeñas, las tarjetas ocuparán el 100% del ancho */
+  }
+
+  #canastas-eventos h2 {
+    font-size: 2rem;
+  }
+}
